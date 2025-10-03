@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  fastqc:
+    image: biocontainers/fastqc:v0.11.9_cv8
+    volumes:
+      - ./data:/data
+    command: fastqc /data/*.fastq.gz -o /data/output
+
+  multiqc:
+    image: ewels/multiqc
+    volumes:
+      - ./data:/data
+    command: multiqc /data/output -o /data/report
+
+  jupyter:
+    image: jupyter/base-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
