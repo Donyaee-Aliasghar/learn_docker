@@ -87,3 +87,12 @@ ping -c 3 ubuntu2
 ```bash
 docker-compose up
 ```
+
+### Add docker optimization step
+1. Create Dockerfile.optimized
+2. Build and compare
+```bash
+docker build -t bio_env_full -f Dockerfile .
+docker build -t bio_env_opt -f Dockerfile.optimized .
+docker images
+```
