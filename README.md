@@ -60,3 +60,23 @@ docker run -it -v $(pwd)/data:/workspace <env name> bash
 ```bash
 fastqc reads.fastq.gz -o /workspace
 ```
+
+### Add Networks step
+1. Create network
+```bash
+docker network create <env name network>
+```
+2. Run 2 container on network
+```bash
+docker run -dit --name ubuntu1 --network <env name image> ubuntu:22.04 bash
+docker run -dit --name ubuntu2 --network <env name image> ubuntu:22.04 bash
+```
+3. Start container
+```bash
+docker start -ai ubuntu1
+```
+4. Connection test
+```bash
+docker exec -it ubuntu1 bash
+ping -c 3 ubuntu2
+```
