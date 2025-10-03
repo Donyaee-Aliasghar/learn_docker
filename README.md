@@ -1,12 +1,7 @@
 # Practice for learn Docker
 
-### Basic commands Step
-1. Create image
-- 1-1. With build
-```bash
-docker build -t <env name> <path>
-```
-- 1-2. With pull
+### Basic commands step
+1. Pull image
 ```bash
 docker pull <image name>
 ```
@@ -29,4 +24,16 @@ docker cp <container_id>:/filename.txt
 docker stop <container_id>
 docker rm <container_id>
 docker system prune -a
+```
+
+### Simeple Dockerfile step
+
+1. Create Dockerfile
+2. Build image
+```bash
+docker build -t <env name> <path>
+```
+3.Test
+```bash
+docker run -it bio_env fastqc --version
 ```
