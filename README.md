@@ -43,5 +43,20 @@ docker build -t <env name> <path>
 ```
 3. Test
 ```bash
-docker run -it bio_env fastqc --version
+docker run -it <env name> fastqc --version
+```
+
+### Add volumes step
+1. Create directory for save data
+```bash
+mkdir data
+mv filename.txt data/
+```
+2. Run container with mount
+```bash
+docker run -it -v $(pwd)/data:/workspace <env name> bash
+```
+3. Go insise container > run tools(for example:)
+```bash
+fastqc reads.fastq.gz -o /workspace
 ```
