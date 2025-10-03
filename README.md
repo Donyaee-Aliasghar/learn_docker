@@ -80,3 +80,10 @@ docker start -ai ubuntu1
 docker exec -it ubuntu1 bash
 ping -c 3 ubuntu2
 ```
+
+### Add Docker compose step
+1. Create yaml file
+2. Run yaml file
+```bash
+docker-compose up
+```
