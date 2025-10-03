@@ -1,5 +1,8 @@
 FROM ubuntu:22.04
 
+# Not asked question.
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get install -y \
     python3 python3-pip \
     r-base wget unzip default-jre \
